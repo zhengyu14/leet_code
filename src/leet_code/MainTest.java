@@ -4,12 +4,16 @@ public class MainTest {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		ListNode ln = new ListNode(1);
-		ln.next = new ListNode(2);
-		ln.next.next = new ListNode(3);
+		RandomListNode ln = new RandomListNode(1);
+		ln.next = new RandomListNode(2);
+		ln.next.next = new RandomListNode(3);
+		ln.next.next.next = new RandomListNode(4);
 		
-		ReverseLinkedList sol = new ReverseLinkedList();
-		ln = sol.reverse(ln);
+		ln.random = ln.next.next.next;
+		ln.next.next.random = ln.next;
+		
+		CopyRandomList sol = new CopyRandomList();
+		ln = sol.copyRandomList(ln);
 		while (ln != null) {
 			System.out.print(ln.data);
 			ln = ln.next;
